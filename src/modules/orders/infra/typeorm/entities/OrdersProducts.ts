@@ -13,7 +13,6 @@ import Product from '@modules/products/infra/typeorm/entities/Product';
 
 @Entity('orders_products')
 class OrdersProducts {
-
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -24,7 +23,6 @@ class OrdersProducts {
   @ManyToOne(() => Product, product => product.order_products)
   @JoinColumn({ name: 'product_id' })
   product: Product;
-
 
   @Column()
   product_id: string;
@@ -40,6 +38,7 @@ class OrdersProducts {
 
   @CreateDateColumn()
   created_at: Date;
+
   @UpdateDateColumn()
   updated_at: Date;
 }
